@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mariage de Keren & Joseph</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: url('https://source.unsplash.com/1600x900/?wedding') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            padding: 50px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            display: inline-block;
+            margin-top: 50px;
+        }
+        h1, h2 {
+            margin: 10px 0;
+        }
+        .timer {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            font-size: 24px;
+            margin-top: 20px;
+        }
+        .timer div {
+            background: rgba(255, 255, 255, 0.8);
+            color: black;
+            padding: 20px;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Bienvenue au Mariage de Keren & Joseph</h1>
+        <h2>Le 18 Mai 2025</h2>
+        <p>Rejoignez-nous pour célébrer notre union dans un cadre magnifique.</p>
+        <div class="timer">
+            <div><span id="days">00</span> Jour(s)</div>
+            <div><span id="hours">00</span> Heure(s)</div>
+            <div><span id="minutes">00</span> Minute(s)</div>
+            <div><span id="seconds">00</span> Seconde(s)</div>
+        </div>
+        <script>
+            function updateCountdown() {
+                const eventDate = new Date('2025-05-18T00:00:00').getTime();
+                const now = new Date().getTime();
+                const timeLeft = eventDate - now;
+
+                const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                document.getElementById('days').innerText = days;
+                document.getElementById('hours').innerText = hours;
+                document.getElementById('minutes').innerText = minutes;
+                document.getElementById('seconds').innerText = seconds;
+            }
+            setInterval(updateCountdown, 1000);
+            updateCountdown();
+        </script>
+    </div>
+</body>
+</html>
